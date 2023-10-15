@@ -11,15 +11,16 @@ const divBoxes = document.querySelector("div#boxes");
 
 function createBoxes(amount) {
   let size = 30;
+  const boxesArr = [];
   for (let i = 1; i <= amount; i += 1) {
     const divBox = document.createElement("div");
-    divBoxes.append(divBox);
-
+    boxesArr.push(divBox);
     divBox.style.height = size + "px";
     divBox.style.width = size + "px";
     divBox.style.backgroundColor = getRandomHexColor();
     size += 10;
   }
+  divBoxes.append(...boxesArr);
 }
 buttonCreate.addEventListener("click", () => {
   const number = input.value;
